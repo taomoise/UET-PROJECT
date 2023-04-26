@@ -6,9 +6,5 @@
     <br>If you are initiator click rhe link below to reset your password.<br>
 or by clicking the following link : <br>
 <a href="#" target="_blank">Reset password<a>
-
-</p>
-
-<p>
     UET_UCAO security team.
 </p>
