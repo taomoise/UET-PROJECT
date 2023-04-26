@@ -73,9 +73,9 @@ class EmailService
     public function viewResatPassword($name, $activation_token)
     {
         return view('mail.reset_password')
-        ->with([
-            'name' => $name,
-            'activation_token' => $activation_token
+              ->with([
+                 'name' => $name,
+                  'activation_token' => $activation_token
         ]);
     }
 }
