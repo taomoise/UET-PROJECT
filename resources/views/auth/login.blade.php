@@ -9,8 +9,8 @@
  <div class="container"></div>
        <div class="row mb-3">
             <div class="col-md-4  mx-auto">
-                  <h1 class="text-center text-muted mb-3 mt-10 ">Connexion</h1>
-                  <p class="text-center text-muted mb -5">Bienvenue sur le site de UET-Ucao</p>
+                  <h1 class="text-center text-muted mb-3 mt-10 ">Please sign in</h1>
+                  <p class="text-center text-muted mb -5">Welcome</p>
 
             <form method="POST" action="{{ route('login')}}">
                  @csrf
@@ -31,10 +31,10 @@
                    </div>
                    @enderror
 
-                  <label for="email">Email</label>
+                  <label for="email" class="form-label">Email</label>
                   <input type="email" name="email" id="email" class="form-control mb-3 @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                  <label for="password">Password</label>
+                  <label for="password" class="form-label">Password</label>
                   <input type="password" name="password" id="password" class="form-control mb-3 @error('password') is-invalid @enderror" required autocomplete="current-password">
 
                 <div class="row mb-3">
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="col-md text-end">
-                        <a href="#">Mot de passe oublié?</a>
+                        <a href="{{ route('app_forgotpassword') }}">Forgot password?</a>
                     </div>
                   </div>
 
