@@ -222,6 +222,7 @@ class LoginController extends Controller
         {
             $email = $this->request->input('email-send');
             $user = DB::table('users')->where('email', $email)->first();
+            $message = null;
 
             if($user)
             {
@@ -232,6 +233,16 @@ class LoginController extends Controller
                $emailrestpwd = new EmailService;
                $subject = "Reset your password";
                $emailrestpwd->resetPassword($subject, $email, $full_name, true, $activation_token);
+
+               DB::table('users')
+                   ->where('email', $email)
+                   ->update(['activation_token' => $activation_token]);
+
+               $message = 'We have just send the request to reset your password, please check your mail-box';
+               return back()->withErrors(['email-success' =>$message])
+                            ->with('old_email', $email)
+                            ->with('success', $message);
+
             }
             else
             {
@@ -243,6 +254,11 @@ class LoginController extends Controller
 
         }
         return view('auth.forgot_password');
+    }
+
+    public function changePassword($token)
+    {
+        return view('auth.change_password');
     }
 
 
